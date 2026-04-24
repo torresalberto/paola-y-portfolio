@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasbeth Paola Correa Castro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige: #f5f5dc;
+            --cream: #fffdd0;
+            --taupe: #b8a89a;
+            --taupe-light: #d4c8be;
+            --espresso: #3e2723;
+            --espresso-light: #5d4037;
+            --warm-white: #faf8f5;
+            --off-white: #f7f4f0;
+            --linen: #efe9e1;
+            --charcoal: #2c2c2c;
+            --soft-gray: #9e9e9e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--espresso);
+            background: var(--warm-white);
+            line-height: 1.8;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 2rem 0;
+            transition: all 0.6s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(250, 248, 245, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 1.25rem 0;
+            box-shadow: 0 1px 40px rgba(62, 39, 35, 0.06);
+        }
+
+        nav .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--espresso);
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--espresso);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.4s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--taupe);
+            transition: width 0.4s;
+        }
+
+        .nav-links a:hover {
+            color: var(--taupe);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--espresso);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--warm-white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-pretitle {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--taupe);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--espresso);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .last-name {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--taupe);
+        }
+
+        .hero-line {
+            width: 40px;
+            height: 1px;
+            background: var(--taupe);
+            margin: 2rem auto;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--espresso-light);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--soft-gray);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 2;
+        }
+
+        .hero-photo {
+            margin: 3rem auto 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-photo img {
+            width: 220px;
+            height: 280px;
+            object-fit: cover;
+            filter: grayscale(20%) sepia(10%);
+            transition: filter 0.6s;
+        }
+
+        .hero-photo:hover img {
+            filter: grayscale(0%) sepia(0%);
+        }
+
+        .photo-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: -15px;
+            bottom: -15px;
+            border: 1px solid var(--taupe-light);
+            z-index: -1;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--taupe);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: var(--off-white);
+        }
+
+        .philosophy .container {
+            text-align: center;
+        }
+
+        .philosophy-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            font-weight: 300;
+            color: var(--linen);
+            line-height: 1;
+            margin-bottom: -2rem;
+        }
+
+        .philosophy h2 {
+            font-size: 3rem;
+            color: var(--espresso);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .philosophy-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--espresso-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
+        }
+
+        .philosophy p {
+            color: var(--soft-gray);
+            max-width: 550px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--warm-white);
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--taupe);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .experience h2 {
+            font-size: 3rem;
+            color: var(--espresso);
+            margin-bottom: 4rem;
+            font-weight: 400;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--linen);
+        }
+
+        .exp-item:first-child {
+            padding-top: 0;
+        }
+
+        .exp-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--taupe);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .exp-content h3 {
+            font-size: 1.5rem;
+            color: var(--espresso);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .exp-company {
+            font-size: 0.9rem;
+            color: var(--taupe);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .exp-content p {
+            color: var(--soft-gray);
+            font-size: 0.95rem;
+            line-height: 1.9;
+        }
+
+        .exp-highlight {
+            display: inline;
+            background: linear-gradient(to bottom, transparent 60%, var(--cream) 60%);
+            color: var(--espresso);
+            font-weight: 500;
+        }
+
+        /* Research Section */
+        .research {
+            background: var(--espresso);
+            color: var(--warm-white);
+            text-align: center;
+        }
+
+        .research .section-label {
+            color: var(--taupe-light);
+        }
+
+        .research h2 {
+            font-size: 3rem;
+            color: var(--warm-white);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .research-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+
+        .research-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--cream);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .research p {
+            color: rgba(250, 248, 245, 0.6);
+            max-width: 550px;
+            margin: 0 auto 2rem;
+            font-size: 1rem;
+        }
+
+        .research-meta {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .research-meta-item .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--taupe-light);
+            display: block;
+            line-height: 1;
+        }
+
+        .research-meta-item .label {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(250, 248, 245, 0.4);
+            margin-top: 0.5rem;
+        }
+
+        .research-cta {
+            display: inline-block;
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--taupe);
+            padding-bottom: 0.5rem;
+            transition: all 0.4s;
+            margin-top: 1rem;
+        }
+
+        .research-cta:hover {
+            border-color: var(--cream);
+            color: var(--warm-white);
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--off-white);
+        }
+
+        .skills h2 {
+            font-size: 3rem;
+            color: var(--espresso);
+            margin-bottom: 4rem;
+            font-weight: 400;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .skill-group h3 {
+            font-size: 1.1rem;
+            color: var(--espresso);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.875rem 0;
+            border-bottom: 1px solid var(--linen);
+        }
+
+        .skill-item span {
+            color: var(--espresso-light);
+            font-size: 0.95rem;
+        }
+
+        .skill-level {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--taupe);
+            font-style: italic;
+        }
+
+        .skill-bar {
+            width: 80px;
+            height: 2px;
+            background: var(--linen);
+            position: relative;
+        }
+
+        .skill-bar-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--taupe);
+        }
+
+        /* Education */
+        .education {
+            background: var(--warm-white);
+            text-align: center;
+        }
+
+        .education h2 {
+            font-size: 3rem;
+            color: var(--espresso);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .edu-main {
+            margin-bottom: 3rem;
+        }
+
+        .edu-main h3 {
+            font-size: 1.75rem;
+            color: var(--espresso);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .edu-main .degree {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--taupe);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-main p {
+            color: var(--soft-gray);
+            font-size: 0.9rem;
+        }
+
+        .edu-courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .edu-course {
+            padding: 0.6rem 1.25rem;
+            border: 1px solid var(--linen);
+            font-size: 0.8rem;
+            color: var(--espresso-light);
+            letter-spacing: 0.5px;
+            transition: all 0.4s;
+        }
+
+        .edu-course:hover {
+            border-color: var(--taupe);
+            background: var(--off-white);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--off-white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            color: var(--espresso);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .contact-subtitle {
+            color: var(--taupe);
+            margin-bottom: 4rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            padding: 2rem;
+        }
+
+        .contact-item .label {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--taupe);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-item a {
+            color: var(--espresso);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.4s;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .contact-item a:hover {
+            color: var(--taupe);
+            border-bottom-color: var(--taupe);
+        }
+
+        .contact-item span {
+            color: var(--espresso);
+            font-size: 1rem;
+        }
+
+        .contact-photo {
+            margin-top: 4rem;
+        }
+
+        .contact-photo img {
+            width: 180px;
+            height: 230px;
+            object-fit: cover;
+            filter: grayscale(30%) sepia(15%);
+            transition: filter 0.6s;
+        }
+
+        .contact-photo:hover img {
+            filter: grayscale(0%) sepia(0%);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--espresso);
+            color: rgba(250, 248, 245, 0.35);
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        footer span {
+            color: var(--taupe-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .philosophy h2,
+            .experience h2,
+            .research h2,
+            .skills h2,
+            .education h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .exp-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-meta {
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--warm-white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-logo">YPCC</div>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+            <ul class="nav-links">
+                <li><a href="#philosophy">Filosofía</a></li>
+                <li><a href="#experience">Trayectoria</a></li>
+                <li><a href="#research">Investigación</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-pretitle">Ingeniera Civil</p>
+                <h1>
+                    Yasbeth Paola<br>
+                    <span class="last-name">Correa Castro</span>
+                </h1>
+                <div class="hero-line"></div>
+                <p class="hero-subtitle">Especialista en Presupuestos de Obra</p>
+                <p class="hero-desc">
+                    Ingeniera Civil con 3 años de experiencia en presupuestos de obra. Aporto habilidades técnicas y estratégicas para lograr con éxito las actividades.
+                </p>
+                <div class="hero-photo">
+                    <img src="assets/paola-photo.png" alt="Yasbeth Paola Correa Castro">
+                    <div class="photo-border"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">Scroll</div>
+    </section>
+
+    <section class="philosophy" id="philosophy">
+        <div class="container">
+            <div class="philosophy-number">01</div>
+            <h2>Filosofía de Trabajo</h2>
+            <p class="philosophy-quote">
+                "Busco aportar mis habilidades técnicas y estratégicas para lograr con éxito las actividades."
+            </p>
+            <p>
+                Mi enfoque combina la precisión de la ingeniería con la visión estratégica de la gestión financiera. Cada proyecto es una oportunidad para crear valor medible y sostenible.
+            </p>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <p class="section-label">Experiencia Profesional</p>
+            <h2>Trayectoria</h2>
+
+            <div class="exp-item">
+                <div class="exp-date">2020 — Presente</div>
+                <div class="exp-content">
+                    <h3>Jefa de Contabilidad</h3>
+                    <p class="exp-company">Vandiere, Inc.</p>
+                    <p>
+                        Dirección del área contable y liderazgo de equipo multidisciplinario. Garantía del cumplimiento de normativas financieras y fiscales vigentes. Implementación de sistemas de control interno que mejoraron la eficiencia de los cierres contables y la precisión en reportes financieros.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">2015 — 2019</div>
+                <div class="exp-content">
+                    <h3>Analista Senior de Impuestos y Contabilidad</h3>
+                    <p class="exp-company">Larana Inc.</p>
+                    <p>
+                        Gestión integral de impuestos, presentaciones fiscales y conciliaciones contables. <span class="exp-highlight">Reducción de contingencias tributarias en un 25%.</span> Participación en proyectos de reorganización fiscal y planificación financiera para clientes corporativos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">2013 — 2015</div>
+                <div class="exp-content">
+                    <h3>Asistente Contable</h3>
+                    <p class="exp-company">Sociedad Martínez</p>
+                    <p>
+                        Colaboración en registración contable, control de cuentas corrientes y apoyo en armado de balances. Dominio de herramientas digitales de gestión contable y participación en procesos de regularización impositiva.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research" id="research">
+        <div class="container">
+            <p class="section-label">Investigación</p>
+            <div class="research-icon">◈</div>
+            <h2>Publicación Científica</h2>
+            <p class="research-title">
+                "Utilización de residuos mineros en concreto permeable como alternativa de construcción sostenible"
+            </p>
+            <p>
+                Investigación publicada en el repositorio de la Universidad Autónoma del Estado de Hidalgo. Explora el uso de residuos mineros industriales para la elaboración de concreto permeable.
+            </p>
+            <div class="research-meta">
+                <div class="research-meta-item">
+                    <span class="number">1</span>
+                    <span class="label">Publicación</span>
+                </div>
+                <div class="research-meta-item">
+                    <span class="number">UAEH</span>
+                    <span class="label">Institución</span>
+                </div>
+                <div class="research-meta-item">
+                    <span class="number">ICBI</span>
+                    <span class="label">Revista</span>
+                </div>
+            </div>
+            <a href="https://repository.uaeh.edu.mx/revistas/index.php/icbi/article/view/11521/10779" target="_blank" class="research-cta">
+                Ver Publicación
+            </a>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <p class="section-label">Competencias</p>
+            <h2>Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3>Software</h3>
+                    <div class="skill-item">
+                        <span>AutoCAD</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Microsoft Excel</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>OPUS</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Prisma Master</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Conocimientos</h3>
+                    <div class="skill-item">
+                        <span>Presupuestos de obra</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Análisis de precios unitarios</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Licitaciones públicas y privadas</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Gestión contable y fiscal</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="container">
+            <p class="section-label">Formación</p>
+            <h2>Educación</h2>
+            <div class="edu-main">
+                <h3>Universidad Autónoma del Estado de Hidalgo</h3>
+                <p class="degree">Licenciatura en Ingeniería Civil</p>
+                <p>Título y Cédula Profesional</p>
+            </div>
+            <div class="edu-courses">
+                <span class="edu-course">EC-0219.01 — Prisma Master</span>
+                <span class="edu-course">Análisis de Precios Unitarios</span>
+                <span class="edu-course">Tabulador de Salarios 2025</span>
+                <span class="edu-course">Licitaciones de Obra</span>
+                <span class="edu-course">Inglés Intermedio</span>
+                <span class="edu-course">Español Nativo</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <p class="section-label">Contacto</p>
+            <h2>Conectemos</h2>
+            <p class="contact-subtitle">¿Interesado en colaborar? Estoy abierta a nuevas oportunidades profesionales.</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="label">Correo</span>
+                    <a href="mailto:yasbethcorrea@gmail.com">yasbethcorrea@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Teléfono</span>
+                    <a href="tel:+527752532400">775 253 2400</a>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Ubicación</span>
+                    <span>Tulancingo de Bravo, Hidalgo</span>
+                </div>
+            </div>
+            <div class="contact-photo">
+                <img src="assets/paola-photo.png" alt="Yasbeth Paola Correa Castro">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Yasbeth Paola Correa Castro — <span>Ingeniera Civil</span></p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

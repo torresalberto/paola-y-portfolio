@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasbeth Paola Correa Castro — Ingeniería Sustentable</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #8fbc8f;
+            --sage-light: #b8d4b8;
+            --sage-dark: #5a8a5a;
+            --terracotta: #e07a5f;
+            --terracotta-light: #f0a890;
+            --sand: #f4f1ea;
+            --sand-dark: #e8e4d9;
+            --forest: #2d4739;
+            --forest-light: #4a6b54;
+            --cream: #faf9f6;
+            --charcoal: #2c2c2c;
+            --warm-white: #fffcf7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--charcoal);
+            background: var(--warm-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Organic shape decorations */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 0;
+            transition: all 0.4s;
+        }
+
+        nav.scrolled {
+            background: rgba(244, 241, 234, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 30px rgba(45, 71, 57, 0.08);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Caveat', cursive;
+            color: var(--forest);
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+
+        .nav-logo span {
+            color: var(--terracotta);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--forest);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--terracotta);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--forest);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            background: linear-gradient(160deg, var(--sand) 0%, var(--warm-white) 50%, var(--sage-light) 100%);
+            overflow: hidden;
+        }
+
+        .hero .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--sage);
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--terracotta);
+            bottom: -150px;
+            left: -100px;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(143, 188, 143, 0.2);
+            color: var(--forest);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(143, 188, 143, 0.3);
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--sage-dark);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--forest);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .accent {
+            color: var(--terracotta);
+            font-family: 'Caveat', cursive;
+            font-weight: 500;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--forest-light);
+            max-width: 480px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-quote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: var(--terracotta);
+            border-left: 3px solid var(--terracotta);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 450px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--forest);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--forest-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(45, 71, 57, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--forest);
+            border: 2px solid var(--sage);
+        }
+
+        .btn-outline:hover {
+            background: var(--sage);
+            color: var(--forest);
+            transform: translateY(-3px);
+        }
+
+        .hero-photo {
+            position: relative;
+            justify-self: center;
+        }
+
+        .hero-photo img {
+            width: 340px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 25px 60px rgba(45, 71, 57, 0.2);
+            position: relative;
+            z-index: 2;
+            transition: border-radius 0.5s;
+        }
+
+        .hero-photo:hover img {
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        }
+
+        .photo-ring {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px dashed var(--sage);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: rotate 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Section base */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-family: 'Caveat', cursive;
+            color: var(--terracotta);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--forest);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--forest-light);
+            max-width: 600px;
+            font-size: 1.05rem;
+        }
+
+        /* Story Section */
+        .story {
+            background: var(--forest);
+            color: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story .blob {
+            background: var(--sage);
+            opacity: 0.08;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-visual {
+            position: relative;
+        }
+
+        .story-visual img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .story-visual .floating-tag {
+            position: absolute;
+            background: var(--terracotta);
+            color: var(--warm-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .story-visual .floating-tag.tag-1 {
+            top: -15px;
+            right: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .story-visual .floating-tag.tag-2 {
+            bottom: 30px;
+            left: -20px;
+            background: var(--sage);
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .story-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--sage-light);
+        }
+
+        .story-content p {
+            color: rgba(255, 252, 247, 0.85);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .story-content .handwritten {
+            font-family: 'Caveat', cursive;
+            font-size: 1.75rem;
+            color: var(--terracotta-light);
+            margin-top: 1.5rem;
+        }
+
+        /* Journey / Experience */
+        .journey {
+            background: var(--sand);
+        }
+
+        .journey-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .journey-card {
+            background: var(--warm-white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sage), var(--terracotta));
+        }
+
+        .journey-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .journey-period {
+            display: inline-block;
+            background: var(--sand);
+            color: var(--forest);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .journey-card h3 {
+            font-size: 1.35rem;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-company {
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .journey-card ul {
+            list-style: none;
+        }
+
+        .journey-card ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        .journey-card ul li::before {
+            content: '🌿';
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        .journey-highlight {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--sage-light) 0%, var(--sage-light) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            font-weight: 600;
+            color: var(--forest);
+        }
+
+        /* Research Feature */
+        .research-feature {
+            background: var(--warm-white);
+            position: relative;
+        }
+
+        .research-feature .blob {
+            background: var(--terracotta);
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .research-showcase {
+            background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            color: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-showcase::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--sage);
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .research-showcase::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .research-showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .research-visual-large {
+            text-align: center;
+        }
+
+        .research-icon {
+            width: 180px;
+            height: 180px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin: 0 auto;
+            border: 3px solid rgba(255,255,255,0.15);
+        }
+
+        .research-showcase h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--sage-light);
+        }
+
+        .research-showcase p {
+            color: rgba(255, 252, 247, 0.85);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .research-meta {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .research-meta-item {
+            text-align: center;
+        }
+
+        .research-meta-item .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--terracotta-light);
+            display: block;
+        }
+
+        .research-meta-item .label {
+            font-size: 0.8rem;
+            color: rgba(255, 252, 247, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .research-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--terracotta);
+            color: var(--warm-white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .research-cta:hover {
+            background: var(--terracotta-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(224, 122, 95, 0.3);
+        }
+
+        /* Skills Cloud */
+        .skills-cloud {
+            background: var(--sand);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-tag {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .skill-tag.sage {
+            background: var(--sage);
+            color: var(--warm-white);
+        }
+
+        .skill-tag.terracotta {
+            background: var(--terracotta);
+            color: var(--warm-white);
+        }
+
+        .skill-tag.forest {
+            background: var(--forest);
+            color: var(--warm-white);
+        }
+
+        .skill-tag.light {
+            background: var(--warm-white);
+            color: var(--forest);
+            border: 2px solid var(--sage);
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1) rotate(-2deg);
+        }
+
+        .skill-section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--forest-light);
+            font-size: 1.1rem;
+        }
+
+        /* Education */
+        .education {
+            background: var(--warm-white);
+        }
+
+        .edu-card {
+            background: var(--sand);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .edu-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .edu-card h3 {
+            font-size: 1.5rem;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .degree {
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card p {
+            color: var(--forest-light);
+        }
+
+        .edu-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .edu-badge {
+            background: var(--warm-white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--forest);
+            border: 1px solid var(--sage-light);
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(160deg, var(--forest) 0%, var(--forest-light) 100%);
+            color: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact .blob {
+            background: var(--sage);
+            opacity: 0.1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--sage-light);
+        }
+
+        .contact-info > p {
+            color: rgba(255, 252, 247, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-item .icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--terracotta-light);
+        }
+
+        .contact-item div span {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255, 252, 247, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-photo {
+            text-align: center;
+        }
+
+        .contact-photo img {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255, 252, 247, 0.5);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.875rem;
+        }
+
+        footer span {
+            color: var(--sage);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-quote {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .story-grid,
+            .research-showcase-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-visual {
+                display: none;
+            }
+
+            .research-showcase {
+                padding: 2rem;
+            }
+
+            .research-meta {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--sand);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-logo">Paola <span>Correa</span></div>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+            <ul class="nav-links">
+                <li><a href="#story">Mi Historia</a></li>
+                <li><a href="#journey">Trayectoria</a></li>
+                <li><a href="#research">Investigación</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Ingeniera Civil · Construcción Sustentable
+                </div>
+                <h1>
+                    Transformando<br>
+                    residuos en<br>
+                    <span class="accent">construcción</span>
+                </h1>
+                <p class="hero-tagline">
+                    Ingeniera Civil especializada en presupuestos de obra y pionera en el uso de residuos mineros para concreto permeable sostenible.
+                </p>
+                <p class="hero-quote">
+                    "Busco aportar mis habilidades técnicas y estratégicas para lograr con éxito las actividades."
+                </p>
+                <div class="hero-buttons">
+                    <a href="#research" class="btn btn-primary">Ver Investigación →</a>
+                    <a href="assets/cv-reference.png" download class="btn btn-outline">Descargar CV</a>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <div class="photo-ring"></div>
+                <img src="assets/paola-photo.png" alt="Yasbeth Paola Correa Castro">
+            </div>
+        </div>
+    </section>
+
+    <section class="story" id="story">
+        <div class="blob" style="width: 400px; height: 400px; top: 10%; left: -10%;"></div>
+        <div class="blob" style="width: 300px; height: 300px; bottom: 10%; right: -5%;"></div>
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-visual">
+                    <img src="assets/cv-reference.png" alt="CV de referencia">
+                    <div class="floating-tag tag-1">✓ Título Profesional</div>
+                    <div class="floating-tag tag-2">✓ Cédula</div>
+                </div>
+                <div class="story-content">
+                    <div class="section-label">Acerca de mí</div>
+                    <h3>De la universidad a la construcción sostenible</h3>
+                    <p>
+                        Soy egresada de la Universidad Autónoma del Estado de Hidalgo con Licenciatura en Ingeniería Civil. Mi formación no solo me dio bases sólidas en estructuras y presupuestos, sino también la curiosidad para preguntarme: ¿podemos construir de forma más responsable?
+                    </p>
+                    <p>
+                        Con 3 años de experiencia en presupuestos de obra, he liderado equipos contables, implementado controles internos y logrado reducir contingencias tributarias en un 25%. Pero mi verdadera pasión radica en la innovación material.
+                    </p>
+                    <p>
+                        Mi investigación sobre residuos mineros en concreto permeable representa un paso hacia la construcción del futuro — una donde los desechos industriales se convierten en recursos valiosos.
+                    </p>
+                    <p class="handwritten">
+                        — Paola Correa Castro
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Experiencia Profesional</div>
+                <h2>Mi Trayectoria</h2>
+                <p>Un camino de crecimiento constante desde la registración contable hasta la dirección de equipos.</p>
+            </div>
+            <div class="journey-cards">
+                <div class="journey-card">
+                    <span class="journey-period">Enero 2020 — Actualidad</span>
+                    <h3>Jefa de Contabilidad</h3>
+                    <p class="journey-company">Vandiere, Inc.</p>
+                    <ul>
+                        <li>Dirección del área contable y liderazgo de equipo multidisciplinario</li>
+                        <li>Garantía del cumplimiento de normativas financieras y fiscales vigentes</li>
+                        <li>Implementación de sistemas de control interno que mejoraron eficiencia</li>
+                        <li>Precisión en reportes financieros y cierres contables</li>
+                    </ul>
+                </div>
+                <div class="journey-card">
+                    <span class="journey-period">Julio 2015 — Diciembre 2019</span>
+                    <h3>Analista Senior de Impuestos y Contabilidad</h3>
+                    <p class="journey-company">Larana Inc.</p>
+                    <ul>
+                        <li>Gestión integral de impuestos y presentaciones fiscales</li>
+                        <li><span class="journey-highlight">Reducción de contingencias tributarias en 25%</span></li>
+                        <li>Reorganización fiscal y planificación financiera corporativa</li>
+                        <li>Conciliaciones contables de alto impacto</li>
+                    </ul>
+                </div>
+                <div class="journey-card">
+                    <span class="journey-period">Febrero 2013 — Junio 2015</span>
+                    <h3>Asistente Contable</h3>
+                    <p class="journey-company">Sociedad Martínez</p>
+                    <ul>
+                        <li>Registración contable y control de cuentas corrientes</li>
+                        <li>Apoyo en armado de balances</li>
+                        <li>Dominio de herramientas digitales de gestión contable</li>
+                        <li>Regularización impositiva</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-feature" id="research">
+        <div class="blob"></div>
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="section-label">Investigación Destacada</div>
+                <h2>Construcción del Futuro</h2>
+                <p>Transformando residuos mineros en materiales de construcción sostenibles.</p>
+            </div>
+            <div class="research-showcase">
+                <div class="research-showcase-grid">
+                    <div class="research-visual-large">
+                        <div class="research-icon">♻️</div>
+                    </div>
+                    <div>
+                        <h3>Utilización de residuos mineros en concreto permeable como alternativa de construcción sostenible</h3>
+                        <p>
+                            Esta investigación publicada en el repositorio de la UAEH explora cómo los residuos mineros industriales pueden reutilizarse en la elaboración de concreto permeable — un material clave para la gestión de aguas pluviales y la reducción de la huella ambiental en proyectos de construcción.
+                        </p>
+                        <p>
+                            <strong>Tesis:</strong> Uso del residuo minero industrial para la elaboración del concreto permeable.
+                        </p>
+                        <div class="research-meta">
+                            <div class="research-meta-item">
+                                <span class="number">1</span>
+                                <span class="label">Publicación</span>
+                            </div>
+                            <div class="research-meta-item">
+                                <span class="number">UAEH</span>
+                                <span class="label">Institución</span>
+                            </div>
+                            <div class="research-meta-item">
+                                <span class="number">🌍</span>
+                                <span class="label">Impacto Ambiental</span>
+                            </div>
+                        </div>
+                        <a href="https://repository.uaeh.edu.mx/revistas/index.php/icbi/article/view/11521/10779" target="_blank" class="research-cta">
+                            Leer Publicación Científica →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-cloud" id="skills">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="section-label">Conocimientos</div>
+                <h2>Habilidades y Herramientas</h2>
+            </div>
+
+            <p class="skill-section-title">Software Técnico</p>
+            <div class="skills-container" style="margin-bottom: 3rem;">
+                <span class="skill-tag sage">AutoCAD</span>
+                <span class="skill-tag forest">Microsoft Excel</span>
+                <span class="skill-tag terracotta">OPUS</span>
+                <span class="skill-tag sage">Prisma Master</span>
+            </div>
+
+            <p class="skill-section-title">Certificaciones y Cursos</p>
+            <div class="skills-container" style="margin-bottom: 3rem;">
+                <span class="skill-tag light">EC-0219.01 — Prisma Master</span>
+                <span class="skill-tag light">Análisis de Precios Unitarios</span>
+                <span class="skill-tag light">Tabulador de Salarios 2025</span>
+                <span class="skill-tag light">Licitaciones Públicas y Privadas</span>
+            </div>
+
+            <p class="skill-section-title">Idiomas</p>
+            <div class="skills-container" style="margin-bottom: 3rem;">
+                <span class="skill-tag forest">Español — Nativo</span>
+                <span class="skill-tag terracotta">Inglés — Intermedio</span>
+            </div>
+
+            <p class="skill-section-title">Instituciones</p>
+            <div class="skills-container">
+                <span class="skill-tag light">Instituto Mexicano de Ingeniería de Costos</span>
+                <span class="skill-tag light">Instituto Mexicano de Arquitectura y Construcción</span>
+                <span class="skill-tag light">Universidad Autónoma del Estado de Hidalgo</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="section-label">Formación Académica</div>
+                <h2>Educación</h2>
+            </div>
+            <div class="edu-card">
+                <div class="icon">🎓</div>
+                <h3>Universidad Autónoma del Estado de Hidalgo</h3>
+                <p class="degree">Licenciatura en Ingeniería Civil</p>
+                <p>Título y Cédula Profesional</p>
+                <div class="edu-badges">
+                    <span class="edu-badge">✓ Título Profesional</span>
+                    <span class="edu-badge">✓ Cédula</span>
+                    <span class="edu-badge">✓ Investigación Publicada</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="blob" style="width: 500px; height: 500px; top: -20%; left: -10%;"></div>
+        <div class="blob" style="width: 400px; height: 400px; bottom: -20%; right: -5%;"></div>
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-label" style="color: var(--terracotta-light);">Contacto</div>
+                    <h3>Construyamos algo juntos</h3>
+                    <p>¿Tienes un proyecto de construcción sostenible o necesitas una especialista en presupuestos? Estoy lista para colaborar.</p>
+                    <div class="contact-item">
+                        <div class="icon">✉️</div>
+                        <div>
+                            <span>Correo</span>
+                            <a href="mailto:yasbethcorrea@gmail.com">yasbethcorrea@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📱</div>
+                        <div>
+                            <span>Teléfono</span>
+                            <a href="tel:+527752532400">775 253 2400</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <span>Ubicación</span>
+                            <span style="color: var(--warm-white);">Tulancingo de Bravo, Hidalgo, México</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-photo">
+                    <img src="assets/paola-photo.png" alt="Yasbeth Paola Correa Castro">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Yasbeth Paola Correa Castro — <span>Ingeniera Civil · Construcción Sustentable</span></p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

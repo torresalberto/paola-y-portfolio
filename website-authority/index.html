@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasbeth Paola Correa Castro — Ingeniera Civil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a237e;
+            --navy-dark: #0d1642;
+            --charcoal: #2d2d2d;
+            --gold: #c9a227;
+            --gold-light: #e8d57a;
+            --white: #ffffff;
+            --gray-50: #f8f9fa;
+            --gray-100: #e9ecef;
+            --gray-600: #6c757d;
+            --gray-800: #343a40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background: var(--white);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 35, 126, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-photo {
+            position: relative;
+            justify-self: center;
+        }
+
+        .hero-photo img {
+            width: 320px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .photo-frame {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--gold);
+            padding-left: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 500px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy-dark);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto;
+        }
+
+        /* About */
+        .about {
+            background: var(--gray-50);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-item h4 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-item p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .about-photo {
+            position: relative;
+        }
+
+        .about-photo img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        /* Experience */
+        .experience {
+            background: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--navy));
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--gold);
+            top: 5px;
+        }
+
+        .timeline-content {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-content ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+
+        .timeline-content ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        .timeline-date {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding-top: 0.5rem;
+        }
+
+        /* Skills */
+        .skills {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .skills .section-header h2,
+        .skills .section-header p {
+            color: var(--white);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .skill-card h3 {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-card h3 .icon {
+            font-size: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-bar {
+            width: 100px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        /* Research */
+        .research {
+            background: var(--gray-50);
+        }
+
+        .research-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .research-visual {
+            background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            position: relative;
+        }
+
+        .research-visual::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .research-visual .icon {
+            font-size: 4rem;
+            color: var(--gold);
+            z-index: 1;
+        }
+
+        .research-content {
+            padding: 3rem;
+        }
+
+        .research-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy-dark);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .research-content h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .research-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .research-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .research-link:hover {
+            color: var(--gold);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .contact-item:hover a {
+            color: var(--gold-light);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .contact-item a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-item div strong {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-600);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item:hover div strong {
+            color: var(--gold-light);
+        }
+
+        .contact-form {
+            background: var(--gray-50);
+            padding: 2.5rem;
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--gray-100);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.875rem;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-photo {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 50px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-date {
+                grid-column: 1;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .research-card {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-logo">YPCC</div>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+            <ul class="nav-links">
+                <li><a href="#about">Acerca de Mí</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#research">Investigación</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">Ingeniera Civil</span>
+                <h1>Yasbeth Paola<br>Correa Castro</h1>
+                <p class="hero-subtitle">Especialista en Presupuestos de Obra</p>
+                <p class="hero-desc">Ingeniera Civil con 3 años de experiencia en presupuestos de obra. Aporto habilidades técnicas y estratégicas para lograr con éxito las actividades.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Años de Experiencia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">25%</span>
+                        <span class="stat-label">Reducción en Contingencias</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Publicación Científica</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Contactar</a>
+                    <a href="assets/cv-reference.png" download class="btn btn-outline">Descargar CV</a>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <img src="assets/paola-photo.png" alt="Yasbeth Paola Correa Castro">
+                <div class="photo-frame"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Acerca de Mí</h3>
+                    <p>Soy una Ingeniera Civil graduada de la Universidad Autónoma del Estado de Hidalgo, con título y cédula profesional. Mi trayectoria combina sólida formación técnica en ingeniería con experiencia práctica en dirección contable y gestión fiscal.</p>
+                    <p>He liderado equipos multidisciplinarios, implementado sistemas de control interno y participado en proyectos de reorganización fiscal. Mi enfoque se centra en la precisión, el cumplimiento normativo y la mejora continua de procesos.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">📊</div>
+                            <div>
+                                <h4>Gestión Financiera</h4>
+                                <p>Dirección contable y control de presupuestos</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🏗️</div>
+                            <div>
+                                <h4>Ingeniería Civil</h4>
+                                <p>Presupuestos y análisis de precios unitarios</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🌱</div>
+                            <div>
+                                <h4>Construcción Sostenible</h4>
+                                <p>Investigación en materiales reciclados</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">📋</div>
+                            <div>
+                                <h4>Licitaciones</h4>
+                                <p>Obra pública y privada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-photo">
+                    <img src="assets/cv-reference.png" alt="CV de referencia">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experiencia Profesional</h2>
+                <div class="section-divider"></div>
+                <p>Trayectoria sólida en contabilidad, impuestos y gestión financiera con enfoque en resultados medibles.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Enero 2020 — Actualidad</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Jefa de Contabilidad</h3>
+                        <p class="timeline-company">Vandiere, Inc.</p>
+                        <ul>
+                            <li>Dirección del área contable y liderazgo de equipo multidisciplinario</li>
+                            <li>Garantía del cumplimiento de normativas financieras y fiscales vigentes</li>
+                            <li>Implementación de sistemas de control interno</li>
+                            <li>Mejora de la eficiencia en cierres contables y precisión de reportes financieros</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Analista Senior de Impuestos y Contabilidad</h3>
+                        <p class="timeline-company">Larana Inc.</p>
+                        <ul>
+                            <li>Gestión integral de impuestos y presentaciones fiscales</li>
+                            <li>Reducción de contingencias tributarias en un <strong>25%</strong></li>
+                            <li>Participación en proyectos de reorganización fiscal</li>
+                            <li>Planificación financiera para clientes corporativos</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Julio 2015 — Diciembre 2019</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Febrero 2013 — Junio 2015</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Asistente Contable</h3>
+                        <p class="timeline-company">Sociedad Martínez</p>
+                        <ul>
+                            <li>Registración contable y control de cuentas corrientes</li>
+                            <li>Apoyo en armado de balances</li>
+                            <li>Dominio de herramientas digitales de gestión contable</li>
+                            <li>Participación en procesos de regularización impositiva</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Habilidades y Conocimientos</h2>
+                <div class="section-divider"></div>
+                <p>Conjunto integral de competencias técnicas y certificaciones profesionales.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><span class="icon">💻</span> Software Técnico</h3>
+                    <ul class="skill-list">
+                        <li>AutoCAD <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div></li>
+                        <li>Microsoft Excel <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div></li>
+                        <li>OPUS <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div></li>
+                        <li>Prisma Master <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div></li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><span class="icon">🎓</span> Cursos y Certificaciones</h3>
+                    <ul class="skill-list">
+                        <li>EC-0219.01 — Operación de software de precios unitarios (Prisma Master)</li>
+                        <li>EC-0219.01 — Análisis de precios unitarios</li>
+                        <li>Cálculo del Nuevo Tabulador de Salarios 2025</li>
+                        <li>Licitaciones de obra pública y privada</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><span class="icon">🌐</span> Idiomas</h3>
+                    <ul class="skill-list">
+                        <li>Español <div class="skill-bar"><div class="skill-bar-fill" style="width: 100%"></div></div></li>
+                        <li>Inglés <div class="skill-bar"><div class="skill-bar-fill" style="width: 60%"></div></div></li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><span class="icon">🏛️</span> Instituciones</h3>
+                    <ul class="skill-list">
+                        <li>Instituto Mexicano de Ingeniería de Costos</li>
+                        <li>Instituto Mexicano de Arquitectura y Construcción</li>
+                        <li>Universidad Autónoma del Estado de Hidalgo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research" id="research">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investigación y Proyectos</h2>
+                <div class="section-divider"></div>
+                <p>Contribución al conocimiento científico en materiales de construcción sostenibles.</p>
+            </div>
+            <div class="research-card">
+                <div class="research-visual">
+                    <span class="icon">🔬</span>
+                </div>
+                <div class="research-content">
+                    <span class="research-badge">Publicación Científica</span>
+                    <h3>Utilización de residuos mineros en concreto permeable como alternativa de construcción sostenible</h3>
+                    <p>Investigación publicada en el repositorio de la UAEH que explora el uso de residuos mineros industriales para la elaboración de concreto permeable, contribuyendo a soluciones de construcción más sostenibles y amigables con el medio ambiente.</p>
+                    <p><strong>Tesis:</strong> Uso del residuo minero industrial para la elaboración del concreto permeable.</p>
+                    <a href="https://repository.uaeh.edu.mx/revistas/index.php/icbi/article/view/11521/10779" target="_blank" class="research-link">
+                        Ver publicación →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contacto</h2>
+                <div class="section-divider"></div>
+                <p>¿Interesado en colaborar? Estoy abierta a nuevas oportunidades profesionales.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Correo Electrónico</strong>
+                            <a href="mailto:yasbethcorrea@gmail.com">yasbethcorrea@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <a href="tel:+527752532400">775 253 2400</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <span>Tulancingo de Bravo, Hidalgo, México</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎓</div>
+                        <div>
+                            <strong>Formación</strong>
+                            <span>Universidad Autónoma del Estado de Hidalgo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Mensaje enviado. Gracias por contactarme.');">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" placeholder="Escribe tu mensaje..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Yasbeth Paola Correa Castro — <span>Ingeniera Civil</span></p>
+    </footer>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item, .skill-card, .highlight-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
